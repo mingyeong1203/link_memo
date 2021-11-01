@@ -22,6 +22,7 @@
 
     <title>mingong🎀's coding club | Bootstrap</title>
     <link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
+
     <style>
         *{
             font-family: 'Yeon Sung', cursive;
@@ -42,8 +43,25 @@
 
             border-radius : 5px;
             border: 4px solid black;
+
+            display: none;
         }
     </style>
+
+    <script>
+        function openclose() {
+            let status = $('#post-box').css('display');
+            console.log(status);
+            if(status == 'block') {
+                $('#post-box').hide();
+                $('#btn-posting-box').text('포스팅박스 열기')
+            } else {
+                $('#post-box').show();
+                $('#btn-posting-box').text('포스팅박스 닫기')
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -53,13 +71,13 @@
             <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
             <hr class="my-4">
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">포스팅 박스 열기</a>
+                <a onclick="openclose()" id="btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅 박스 열기</a>
             </p>
         </div>
-        <div class="posting-box">
+        <div class="posting-box" id ="post-box">
             <div class="form-group">
-                <label for="exampleInputEmail1">아티클 URL</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label>아티클 URL</label>
+                <input type="email" class="form-control" id="article-url" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">간단 코멘트</label>
@@ -67,7 +85,7 @@
             </div>
             <button type="submit" class="btn btn-primary">기사저장</button>
         </div>
-        <div class="card-columns">
+        <div class="card-columns" id="cards-box">
             <div class="card">
                 <img class="card-img-top" src="https://i.pinimg.com/564x/f7/21/99/f721999b37dd274931143b1bbe085465.jpg"
                      alt="Card image cap">
